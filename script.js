@@ -101,3 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarEstado();
   crearMalla();
 });
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  document.querySelectorAll(".asignatura").forEach(div => {
+    div.classList.remove("aprobada");
+  });
+
+  localStorage.removeItem("aprobadas");
+  actualizarBloqueos(); // ← vuelve a aplicar los prerequisitos
+});
