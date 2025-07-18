@@ -348,7 +348,7 @@ const asignaturas = [
     semestre: 6,
     nombre: "Ingles Intermedio",
     sigla: "INI5111",
-    tipo: "especialidad",
+    tipo: "empleabilidad",
     prerequisitos: ["Ingles Elemental"],
     creditos: 16
   },
