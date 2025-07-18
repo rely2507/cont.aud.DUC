@@ -150,4 +150,4 @@ v.textContent = valoricos + (valoricos >= 4 ? " ✅" : "");
 r.style.color = regulares >= 408 ? "green" : "#222";
 c.style.color = complementarios >= 18 ? "green" : "#222";
 v.style.color = valoricos >= 4 ? "green" : "#222";
-  
+} 
