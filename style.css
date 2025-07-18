@@ -120,15 +120,15 @@ h1 {
 
 .resumen-creditos {
   position: absolute;
-  top: 4.5em;
+  top: 4rem;
   right: 1em;
   background-color: rgba(255, 255, 255, 0.6);
-  padding: 1em;
+  padding: 0.5em 1em;
   border-radius: 8px;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #222;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: right;
   z-index: 100;
+  line-height: 1.2;
 }
-
