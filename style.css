@@ -96,9 +96,23 @@ h1 {
   bottom: 4px;
   right: 6px;
   font-size: 0.75em;
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 2px 4px;
-  border-radius: 4px;
   font-weight: bold;
+  opacity: 0.8;
+}
+
+/* Colores oscuros según tipo */
+.especialidad .creditos {
+  color: #b8005a; /* rosa oscuro */
+}
+
+.empleabilidad .creditos {
+  color: #4b0082; /* morado oscuro */
+}
+
+.valorica .creditos {
+  color: #007faa; /* celeste oscuro */
+}
+
+.complementaria .creditos {
+  color: #cc5500; /* naranjo oscuro */
 }
