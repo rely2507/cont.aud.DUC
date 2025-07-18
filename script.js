@@ -109,6 +109,7 @@ function cargarEstado() {
 document.addEventListener("DOMContentLoaded", () => {
   cargarEstado();
   crearMalla();
+  actualizarCreditos();
 });
 
 document.getElementById("resetBtn").addEventListener("click", () => {
