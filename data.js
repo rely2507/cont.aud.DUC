@@ -144,7 +144,7 @@ const asignaturas = [
     sigla: "TRA3128",
     tipo: "especialidad",
     prerequisitos: [],
-    8
+    creditos: 8
   },
   {
     semestre: 3,
