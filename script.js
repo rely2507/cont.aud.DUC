@@ -13,7 +13,10 @@ function crearMalla() {
     materias.forEach(m => {
       const div = document.createElement("div");
       div.className = `asignatura ${m.tipo}`;
-      div.innerText = m.nombre;
+      div.innerHTML = `
+  <div class="nombre-asignatura">${m.nombre}</div>
+  <div class="sigla-asignatura">${m.sigla}</div>
+`;
       const creditos = document.createElement("span");
       creditos.classList.add("creditos");
       creditos.textContent = `${m.creditos} cr`;
