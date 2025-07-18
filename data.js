@@ -440,7 +440,7 @@ const asignaturas = [
     sigla: "PA71123",
     tipo: "especialidad",
     prerequisitos: ["Proceso De Portafolio IV"],
-    creditos: 0
+    creditos: 6
   },
 
   {
