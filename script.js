@@ -17,10 +17,6 @@ function crearMalla() {
   <div class="nombre-asignatura">${m.nombre}</div>
   <div class="sigla-asignatura">${m.sigla}</div>
 `;
-  if (m.prerequisitos && m.prerequisitos.length > 0) {
-    div.setAttribute("data-tooltip", "Prerequisitos: " + m.prerequisitos.join(", "));
-}
-
       const creditos = document.createElement("span");
       creditos.classList.add("creditos");
       creditos.textContent = `${m.creditos} cr`;
