@@ -323,11 +323,9 @@ const asignaturas = [
     nombre: "Auditoria Tributaria",
     sigla: "AUA6128",
     tipo: "especialidad",
-    prerequisitos: [
-      "Auditoria Y Control Interno",
+    prerequisitos: ["Auditoria Y Control Interno",
       "Taller De Renta",
-      "Impuestos A Las Ventas Y Servicios"
-    ],
+      "Impuestos A Las Ventas Y Servicios"],
     creditos: 10
   },
   {
