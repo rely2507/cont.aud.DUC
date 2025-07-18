@@ -147,25 +147,3 @@ h1 {
 .asignatura[data-tooltip] {
   position: relative;
 }
-
-.asignatura[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(60, 60, 60, 0.9);
-  color: #fff;
-  padding: 5px 8px;
-  border-radius: 5px;
-  white-space: nowrap;
-  font-size: 0.7em;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease-in-out;
-  z-index: 200;
-}
-
-.asignatura[data-tooltip]:hover::after {
-  opacity: 1;
-}
