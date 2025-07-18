@@ -14,6 +14,10 @@ function crearMalla() {
       const div = document.createElement("div");
       div.className = `asignatura ${m.tipo}`;
       div.innerText = m.nombre;
+      const creditos = document.createElement("span");
+      creditos.classList.add("creditos");
+      creditos.textContent = `${m.creditos} cr`;
+      div.appendChild(creditos);
       div.dataset.nombre = m.nombre;
       div.dataset.semestre = m.semestre;
 
