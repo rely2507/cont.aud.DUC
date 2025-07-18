@@ -139,7 +139,15 @@ function actualizarCreditos() {
     }
   });
 
-  document.getElementById("creditosRegulares").textContent = regulares;
-  document.getElementById("creditosComplementarios").textContent = complementarios;
-  document.getElementById("creditosValoricos").textContent = valoricos;
-}
+  const r = document.getElementById("creditosRegulares");
+const c = document.getElementById("creditosComplementarios");
+const v = document.getElementById("creditosValoricos");
+
+r.textContent = regulares + (regulares >= 408 ? " ✅" : "");
+c.textContent = complementarios + (complementarios >= 18 ? " ✅" : "");
+v.textContent = valoricos + (valoricos >= 4 ? " ✅" : "");
+
+r.style.color = regulares >= 408 ? "green" : "#222";
+c.style.color = complementarios >= 18 ? "green" : "#222";
+v.style.color = valoricos >= 4 ? "green" : "#222";
+
