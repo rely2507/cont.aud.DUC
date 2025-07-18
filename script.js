@@ -17,6 +17,23 @@ function crearMalla() {
   <div class="nombre-asignatura">${m.nombre}</div>
   <div class="sigla-asignatura">${m.sigla}</div>
 `;
+  if (m.prerequisitos && m.prerequisitos.length > 0) {
+  div.addEventListener("mouseenter", () => {
+    m.prerequisitos.forEach(nombre => {
+      const prereq = document.querySelector(`.asignatura[data-nombre="${nombre}"]`);
+      if (prereq) prereq.classList.add("resaltada");
+    });
+  });
+
+  div.addEventListener("mouseleave", () => {
+    m.prerequisitos.forEach(nombre => {
+      const prereq = document.querySelector(`.asignatura[data-nombre="${nombre}"]`);
+      if (prereq) prereq.classList.remove("resaltada");
+    });
+  });
+}
+  div.dataset.nombre = m.nombre;
+      
       const creditos = document.createElement("span");
       creditos.classList.add("creditos");
       creditos.textContent = `${m.creditos} cr`;
