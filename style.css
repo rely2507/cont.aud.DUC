@@ -147,3 +147,9 @@ h1 {
 .asignatura[data-tooltip] {
   position: relative;
 }
+
+.asignatura.resaltada {
+  outline: 2px dashed #ffc107;
+  outline-offset: 3px;
+  transition: outline 0.2s ease-in-out;
+}
