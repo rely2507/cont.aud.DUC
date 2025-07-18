@@ -139,11 +139,6 @@ function actualizarCreditos() {
     }
   });
 
-document.getElementById("creditosRegulares").textContent = regulares;
-document.getElementById("creditosComplementarios").textContent = complementarios;
-document.getElementById("creditosValoricos").textContent = valoricos;
-
-// NUEVO BLOQUE DE DETECCIÓN DE CUMPLIMIENTO
 const r = document.getElementById("creditosRegulares");
 const c = document.getElementById("creditosComplementarios");
 const v = document.getElementById("creditosValoricos");
