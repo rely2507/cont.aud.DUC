@@ -28,10 +28,10 @@ function crearMalla() {
 
       div.addEventListener("click", () => {
         if (div.classList.contains("bloqueada")) return;
-
         div.classList.toggle("aprobada");
         guardarEstado();
         actualizarBloqueos();
+        actualizarCreditos();
       });
 
       columna.appendChild(div);
@@ -99,6 +99,8 @@ function cargarEstado() {
       a._aprobada = true;
     }
   });
+
+  actualizarCreditos();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -114,3 +116,30 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   localStorage.removeItem("aprobadas");
   actualizarBloqueos(); // ← vuelve a aplicar los prerequisitos
 });
+
+function actualizarCreditos() {
+  const asignaturasAprobadas = document.querySelectorAll(".asignatura.aprobada");
+  
+  let regulares = 0;
+  let complementarios = 0;
+  let valoricos = 0;
+
+  asignaturasAprobadas.forEach(div => {
+    const nombre = div.dataset.nombre;
+    const tipo = [...div.classList].find(c => ["especialidad", "complementaria", "valorica", "empleabilidad"].includes(c));
+    const asignatura = asignaturas.find(a => a.nombre === nombre);
+    if (!asignatura) return;
+
+    if (asignatura.nombre === "Doctrina Social de la Iglesia") {
+      valoricos += asignatura.creditos || 0;
+    } else if (tipo === "complementaria") {
+      complementarios += asignatura.creditos || 0;
+    } else {
+      regulares += asignatura.creditos || 0;
+    }
+  });
+
+  document.getElementById("creditosRegulares").textContent = regulares;
+  document.getElementById("creditosComplementarios").textContent = complementarios;
+  document.getElementById("creditosValoricos").textContent = valoricos;
+}
