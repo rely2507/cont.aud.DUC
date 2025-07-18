@@ -130,7 +130,7 @@ function actualizarCreditos() {
     const asignatura = asignaturas.find(a => a.nombre === nombre);
     if (!asignatura) return;
 
-    if (asignatura.nombre === "Doctrina Social de la Iglesia") {
+    if (asignatura.nombre.trim().toLowerCase() === "doctrina social de la iglesia") {
       valoricos += asignatura.creditos || 0;
     } else if (tipo === "complementaria") {
       complementarios += asignatura.creditos || 0;
