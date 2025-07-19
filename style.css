@@ -83,7 +83,7 @@ h1 {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin: 1rem auto;
+  margin: 1rem;
   display: block;
   transition: background-color 0.3s ease;
 }
