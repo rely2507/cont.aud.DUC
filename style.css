@@ -50,7 +50,6 @@ h1 {
 
 .bloqueada {
   opacity: 0.5;
-  pointer-events: none;
 }
 
 .especialidad { background-color: #ffb6c1; }
