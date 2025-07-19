@@ -153,3 +153,43 @@ h1 {
   transition: none;
   z-index: 5;
 }
+
+.leyenda-tipos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.color-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.color-box.especialidad {
+  background-color: #ff69b4;
+}
+
+.color-box.empleabilidad {
+  background-color: #9370db;
+}
+
+.color-box.valorica {
+  background-color: #87ceeb;
+}
+
+.color-box.complementaria {
+  background-color: #ffa07a;
+}
