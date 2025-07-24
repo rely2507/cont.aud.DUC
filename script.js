@@ -214,7 +214,7 @@ if (!nombre || !sigla || isNaN(creditos) || isNaN(semestre) || semestre < 1 || s
 
   // Crear visualmente
   const div = document.createElement("div");
-  div.className = "asignatura complementaria";
+  div.className = "asignatura complementaria optativa-personalizada";
   div.innerHTML = `
     <div class="nombre-asignatura">${nueva.nombre}</div>
     <div class="sigla-asignatura">${nueva.sigla}</div>
