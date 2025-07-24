@@ -238,3 +238,30 @@ h1 {
 .formulario-optativa.oculto {
   display: none;
 }
+
+#menuContextual {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #999;
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 1000;
+}
+
+#menuContextual button {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+#menuContextual button:hover {
+  background-color: #f0f0f0;
+}
+
