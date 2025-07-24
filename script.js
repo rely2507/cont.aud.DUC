@@ -14,7 +14,7 @@ function crearMalla() {
     const materias = asignaturas.filter(a => a.semestre === i);
     materias.forEach(m => {
       const div = document.createElement("div");
-      div.className = `asignatura ${m.tipo}`;
+      div.className = `asignatura ${m.tipo}${m.tipo === "complementaria" && m.prerequisitos.length === 0 ? " optativa-personalizada" : ""}`;
       div.innerHTML = `
   <div class="nombre-asignatura">${m.nombre}</div>
   <div class="sigla-asignatura">${m.sigla}</div>
