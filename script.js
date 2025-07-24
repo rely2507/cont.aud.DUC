@@ -247,3 +247,67 @@ contenedor.appendChild(div);
   formulario.classList.add("oculto");
   formulario.reset?.();
 });
+
+const menu = document.getElementById("menuContextual");
+let optativaSeleccionada = null;
+
+// Mostrar menú contextual
+document.addEventListener("contextmenu", e => {
+  if (e.target.closest(".optativa-personalizada")) {
+    e.preventDefault();
+    optativaSeleccionada = e.target.closest(".optativa-personalizada");
+    menu.style.top = `${e.pageY}px`;
+    menu.style.left = `${e.pageX}px`;
+    menu.style.display = "block";
+  } else {
+    menu.style.display = "none";
+  }
+});
+
+// Ocultar menú al hacer clic en otro lugar
+document.addEventListener("click", () => {
+  menu.style.display = "none";
+});
+
+// Editar optativa
+document.getElementById("editarOpt").addEventListener("click", () => {
+  if (!optativaSeleccionada) return;
+
+  const nombre = optativaSeleccionada.dataset.nombre;
+  const asignatura = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]").find(a => a.nombre === nombre);
+  if (!asignatura) return;
+
+  // Rellenar formulario
+  document.getElementById("nombreOptativa").value = asignatura.nombre;
+  document.getElementById("siglaOptativa").value = asignatura.sigla;
+  document.getElementById("creditosOptativa").value = asignatura.creditos;
+  document.getElementById("semestreOptativa").value = asignatura.semestre;
+
+  // Eliminar anterior
+  optativaSeleccionada.remove();
+  let nuevas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
+  nuevas = nuevas.filter(a => a.nombre !== nombre);
+  localStorage.setItem("optativasPersonalizadas", JSON.stringify(nuevas));
+
+  // Mostrar formulario
+  document.getElementById("formularioOptativa").classList.remove("oculto");
+  menu.style.display = "none";
+});
+
+// Eliminar optativa
+document.getElementById("eliminarOpt").addEventListener("click", () => {
+  if (!optativaSeleccionada) return;
+
+  const nombre = optativaSeleccionada.dataset.nombre;
+  optativaSeleccionada.remove();
+  let nuevas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
+  nuevas = nuevas.filter(a => a.nombre !== nombre);
+  localStorage.setItem("optativasPersonalizadas", JSON.stringify(nuevas));
+
+  // También eliminar de `asignaturas` principal
+  const index = asignaturas.findIndex(a => a.nombre === nombre);
+  if (index !== -1) asignaturas.splice(index, 1);
+
+  actualizarEstado();
+  menu.style.display = "none";
+});
