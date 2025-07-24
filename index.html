@@ -16,6 +16,19 @@
   <div><strong>Total formación cristiana:</strong> 4 — Créditos aprobados: <span id="creditosValoricos">0</span></div>
 </div>
   <div id="malla" class="malla-container"></div>
+  <div class="agregar-optativa-container">
+  <button id="agregarOptativaBtn">➕ Agregar asignatura optativa</button>
+</div>
+
+<div id="formularioOptativa" class="formulario-optativa oculto">
+  <h3>Nueva asignatura optativa</h3>
+  <input type="text" id="nombreOptativa" placeholder="Nombre" />
+  <input type="text" id="siglaOptativa" placeholder="Sigla" />
+  <input type="number" id="creditosOptativa" placeholder="Créditos" min="1" />
+  <button id="guardarOptativaBtn">Guardar</button>
+  <button id="cancelarOptativaBtn">Cancelar</button>
+</div>
+
   <div class="leyenda-tipos">
   <div class="leyenda-item">
     Especialidad <span class="color-box especialidad"></span>
