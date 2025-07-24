@@ -226,7 +226,9 @@ if (!nombre || !sigla || isNaN(creditos) || isNaN(semestre) || semestre < 1 || s
   div.addEventListener("click", () => {
     if (div.classList.contains("bloqueada")) return;
     div.classList.toggle("aprobada");
-    actualizarEstado();
+    guardarEstado();
+    actualizarCreditos();
+    actualizarBloqueos();
   });
 
   let contenedor = document.querySelector(`#semestre-${nueva.semestre}`);
@@ -308,6 +310,8 @@ document.getElementById("eliminarOpt").addEventListener("click", () => {
   const index = asignaturas.findIndex(a => a.nombre === nombre);
   if (index !== -1) asignaturas.splice(index, 1);
 
-  actualizarEstado();
+  guardarEstado();
+  actualizarCreditos();
+  actualizarBloqueos();
   menu.style.display = "none";
 });
