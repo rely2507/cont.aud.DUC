@@ -192,21 +192,22 @@ btnGuardar.addEventListener("click", () => {
   const nombre = document.getElementById("nombreOptativa").value.trim();
   const sigla = document.getElementById("siglaOptativa").value.trim();
   const creditos = parseInt(document.getElementById("creditosOptativa").value);
+  const semestre = parseInt(document.getElementById("semestreOptativa").value);
 
-  if (!nombre || !sigla || isNaN(creditos)) {
-    alert("Por favor completa todos los campos correctamente.");
-    return;
-  }
-
+if (!nombre || !sigla || isNaN(creditos) || isNaN(semestre) || semestre < 1 || semestre > 8) {
+  alert("Por favor completa todos los campos correctamente (semestre entre 1 y 8).");
+  return;
+}
+  
   const nueva = {
-    nombre,
-    sigla,
-    creditos,
-    semestre: 8, // o el semestre que prefieras ubicar
-    tipo: "complementaria",
-    prerequisitos: []
-  };
-
+  nombre,
+  sigla,
+  creditos,
+  semestre,
+  tipo: "complementaria",
+  prerequisitos: []
+};
+  
   // Agregar a lista principal
   asignaturas.push(nueva);
   guardarEstado(); // por si quieres forzar guardar
@@ -228,7 +229,15 @@ btnGuardar.addEventListener("click", () => {
     actualizarEstado();
   });
 
-  document.querySelector(`#semestre-${nueva.semestre}`)?.appendChild(div);
+  let contenedor = document.querySelector(`#semestre-${nueva.semestre}`);
+if (!contenedor) {
+  contenedor = document.createElement("div");
+  contenedor.className = "semestre";
+  contenedor.id = `semestre-${nueva.semestre}`;
+  contenedor.innerHTML = `<h3>Semestre ${nueva.semestre}</h3>`;
+  document.getElementById("malla").appendChild(contenedor);
+}
+contenedor.appendChild(div);
 
   // Guardar en localStorage lista personalizada
   const guardadas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
