@@ -223,13 +223,13 @@ if (!nombre || !sigla || isNaN(creditos) || isNaN(semestre) || semestre < 1 || s
   div.dataset.nombre = nueva.nombre;
   div.dataset.semestre = nueva.semestre;
 
-  div.addEventListener("click", () => {
-    if (div.classList.contains("bloqueada")) return;
-    div.classList.toggle("aprobada");
-    guardarEstado();
-    actualizarCreditos();
-    actualizarBloqueos();
-  });
+div.addEventListener("click", () => {
+  if (div.classList.contains("bloqueada")) return;
+  div.classList.toggle("aprobada");
+  guardarEstado();
+  actualizarCreditos();
+  actualizarBloqueos();
+});
 
   let contenedor = document.querySelector(`#semestre-${nueva.semestre}`);
 if (!contenedor) {
