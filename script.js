@@ -1,7 +1,9 @@
 function crearMalla() {
   const container = document.getElementById("malla");
   container.innerHTML = "";
-
+  const optativasGuardadas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
+  optativasGuardadas.forEach(o => asignaturas.push(o));
+  
   const maxSemestre = Math.max(...asignaturas.map(a => a.semestre));
 
   for (let i = 1; i <= maxSemestre; i++) {
@@ -169,3 +171,70 @@ r.style.color = regulares >= 408 ? "green" : "#222";
 c.style.color = complementarios >= 18 ? "green" : "#222";
 v.style.color = valoricos >= 4 ? "green" : "#222";
 } 
+
+// Mostrar/ocultar formulario
+const btnAbrir = document.getElementById("agregarOptativaBtn");
+const formulario = document.getElementById("formularioOptativa");
+const btnGuardar = document.getElementById("guardarOptativaBtn");
+const btnCancelar = document.getElementById("cancelarOptativaBtn");
+
+btnAbrir.addEventListener("click", () => {
+  formulario.classList.remove("oculto");
+});
+
+btnCancelar.addEventListener("click", () => {
+  formulario.classList.add("oculto");
+  formulario.reset?.(); // por si quieres limpiar
+});
+
+// Guardar asignatura optativa personalizada
+btnGuardar.addEventListener("click", () => {
+  const nombre = document.getElementById("nombreOptativa").value.trim();
+  const sigla = document.getElementById("siglaOptativa").value.trim();
+  const creditos = parseInt(document.getElementById("creditosOptativa").value);
+
+  if (!nombre || !sigla || isNaN(creditos)) {
+    alert("Por favor completa todos los campos correctamente.");
+    return;
+  }
+
+  const nueva = {
+    nombre,
+    sigla,
+    creditos,
+    semestre: 8, // o el semestre que prefieras ubicar
+    tipo: "complementaria",
+    prerequisitos: []
+  };
+
+  // Agregar a lista principal
+  asignaturas.push(nueva);
+  guardarEstado(); // por si quieres forzar guardar
+
+  // Crear visualmente
+  const div = document.createElement("div");
+  div.className = "asignatura complementaria";
+  div.innerHTML = `
+    <div class="nombre-asignatura">${nueva.nombre}</div>
+    <div class="sigla-asignatura">${nueva.sigla}</div>
+    <span class="creditos">${nueva.creditos} cr</span>
+  `;
+  div.dataset.nombre = nueva.nombre;
+  div.dataset.semestre = nueva.semestre;
+
+  div.addEventListener("click", () => {
+    if (div.classList.contains("bloqueada")) return;
+    div.classList.toggle("aprobada");
+    actualizarEstado();
+  });
+
+  document.querySelector(`#semestre-${nueva.semestre}`)?.appendChild(div);
+
+  // Guardar en localStorage lista personalizada
+  const guardadas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
+  guardadas.push(nueva);
+  localStorage.setItem("optativasPersonalizadas", JSON.stringify(guardadas));
+
+  formulario.classList.add("oculto");
+  formulario.reset?.();
+});
