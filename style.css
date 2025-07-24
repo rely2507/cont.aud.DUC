@@ -194,3 +194,47 @@ h1 {
 .color-box.complementaria {
   background-color: #ffa07a;
 }
+
+.agregar-optativa-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#agregarOptativaBtn {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #ffa07a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.formulario-optativa {
+  background: #ffe4e1;
+  border: 2px solid #ff7f50;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario-optativa input {
+  padding: 8px;
+  font-size: 0.95rem;
+}
+
+.formulario-optativa button {
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.formulario-optativa.oculto {
+  display: none;
+}
