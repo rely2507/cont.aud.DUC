@@ -97,10 +97,21 @@ function actualizarBloqueos() {
 }
 
 function estanAprobadosTodosHasta(semestreLimite, aprobadas) {
+  // 1. Asignaturas obligatorias (excluye las optativas personalizadas)
   const obligatorias = asignaturas
-    .filter(a => a.semestre <= semestreLimite)
+    .filter(a => a.semestre <= semestreLimite && !a.personalizada)
     .map(a => a.nombre);
-  return obligatorias.every(n => aprobadas.includes(n));
+
+  const obligatoriasCompletas = obligatorias.every(n => aprobadas.includes(n));
+
+  // 2. Al menos una optativa (complementaria) aprobada hasta ese semestre
+  const optativaAprobada = asignaturas.some(a =>
+    a.semestre <= semestreLimite &&
+    a.tipo === "complementaria" &&
+    aprobadas.includes(a.nombre)
+  );
+
+  return obligatoriasCompletas && optativaAprobada;
 }
 
 function guardarEstado() {
@@ -199,13 +210,14 @@ if (!nombre || !sigla || isNaN(creditos) || isNaN(semestre) || semestre < 1 || s
   return;
 }
   
-  const nueva = {
+const nueva = {
   nombre,
   sigla,
   creditos,
   semestre,
   tipo: "complementaria",
-  prerequisitos: []
+  prerequisitos: [],
+  personalizada: true // ← esto es importante
 };
   
   // Agregar a lista principal
