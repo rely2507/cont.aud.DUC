@@ -63,7 +63,21 @@ div.addEventListener("mouseleave", () => {
 }
 
 function actualizarBloqueos() {
-  const aprobadas = [...document.querySelectorAll(".aprobada")].map(d => d.dataset.nombre);
+  const aprobadas = [...document.querySelectorAll(".asignatura.aprobada")].map(d => d.dataset.nombre);
+
+  // Contar créditos complementarios aprobados
+  let creditosComplementarios = 0;
+  aprobadas.forEach(nombre => {
+    const asignatura = asignaturas.find(a => a.nombre === nombre);
+    if (!asignatura) return;
+    const tipo = asignatura.tipo;
+    if (
+      tipo === "complementaria" ||
+      (asignatura.nombre.trim().toLowerCase() === "doctrina social de la iglesia")
+    ) {
+      creditosComplementarios += asignatura.creditos || 0;
+    }
+  });
 
   document.querySelectorAll(".asignatura").forEach(div => {
     const nombre = div.dataset.nombre;
@@ -71,7 +85,14 @@ function actualizarBloqueos() {
 
     let bloqueada = false;
 
-    if (data.prerequisitos.includes("Todas Las Asignaturas Semestres 1 A 4")) {
+    if (data.nombre === "Práctica Laboral") {
+      bloqueada = !(estanAprobadosTodosHasta(4, aprobadas) && creditosComplementarios >= 6);
+    } else if (
+      data.nombre === "Práctica Profesional" ||
+      data.nombre === "Portafolio de Título"
+    ) {
+      bloqueada = !(estanAprobadosTodosHasta(7, aprobadas) && creditosComplementarios >= 18);
+    } else if (data.prerequisitos.includes("Todas Las Asignaturas Semestres 1 A 4")) {
       bloqueada = !estanAprobadosTodosHasta(4, aprobadas);
     } else if (data.prerequisitos.includes("Todas Las Asignaturas Semestres 1 A 7")) {
       bloqueada = !estanAprobadosTodosHasta(7, aprobadas);
