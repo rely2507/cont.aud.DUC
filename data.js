@@ -266,7 +266,7 @@ const asignaturas = [
     nombre: "Practica Laboral",
     sigla: "PLA1123",
     tipo: "especialidad",
-    prerequisitos: ["Estados Financieros E IFRS", "Procesos Administrativos De Negocios", "Herramientas Tecnológicas Para La Gestión Contable", "Procedimientos Laborales Y Contratación", "Nivelación Matemática", "Habilidades Básicas De Comunicación", "Proceso De Portafolio I", "Análisis Contable", "Código Tributario", "Remuneraciones", "Algebra", "Habilidades De Comunicación Efectiva", "Fundamentos De Antropología", "Proceso De Portafolio II", "Contabilidades Especiales", "Análisis Económico Para La Administración", "Impuesto A La Renta", "Impuestos A Las Ventas Y Servicios", "Herramientas Financieras", "Mentalidad Emprendedora", "Ingles Básico I", "Doctrina Social De La Iglesia", "Proceso De Portafolio III", "Contabilidad De Inversiones Y Consolidación", "Herramientas Tecnológicas ERP", "Taller De Renta", "Costos, Presupuestos Y Control Presupuestario", "Ingles Básico II", "Ética Para El Trabajo", "Proceso De Portafolio IV"],
+    prerequisitos: ["Todas Las Asignaturas Semestres 1 A 4"],
     creditos: 10
   },
   {
@@ -424,7 +424,7 @@ const asignaturas = [
     nombre: "Portafolio De Titulo",
     sigla: "PTA1123",
     tipo: "especialidad",
-    prerequisitos: ["Estados Financieros E IFRS", "Procesos Administrativos De Negocios", "Herramientas Tecnológicas Para La Gestión Contable", "Procedimientos Laborales Y Contratación", "Nivelación Matemática", "Habilidades Básicas De Comunicación", "Proceso De Portafolio I", "Análisis Contable", "Código Tributario", "Remuneraciones", "Algebra", "Habilidades De Comunicación Efectiva", "Fundamentos De Antropología", "Proceso De Portafolio II", "Contabilidades Especiales", "Análisis Económico Para La Administración", "Impuesto A La Renta", "Impuestos A Las Ventas Y Servicios", "Herramientas Financieras", "Mentalidad Emprendedora", "Ingles Básico I", "Doctrina Social De La Iglesia", "Proceso De Portafolio III", "Contabilidad De Inversiones Y Consolidación", "Herramientas Tecnológicas ERP", "Taller De Renta", "Costos, Presupuestos Y Control Presupuestario", "Ingles Básico II", "Ética Para El Trabajo", "Proceso De Portafolio IV", "Auditoria Y Control Interno", "Taller Tributario Contable", "Practica Laboral", "Estadística Descriptiva", "Innovación En Procesos", "Ingles Elemental", "Proceso De Portafolio V", "Auditoria De Estados Financieros", "Auditoria Tributaria", "Gobierno Corporativo Y Compliance", "Finanzas Para La Toma De Decisiones", "Ingles Intermedio", "Ética Profesional", "Proceso De Portafolio VI", "Gestión De Impuestos", "Gestión De Riesgos", "Costos Para La Toma De Decisiones", "Planificación Estratégica Y Control De Gestión", "Evaluación De Proyectos", "ESP Contable", "Proceso De Portafolio Final"],
+    prerequisitos: ["Todas Las Asignaturas Semestres 1 A 7"],
     creditos: 20
   },
   {
@@ -432,7 +432,7 @@ const asignaturas = [
     nombre: "Practica Profesional",
     sigla: "PPA1123",
     tipo: "especialidad",
-    prerequisitos: ["Estados Financieros E IFRS", "Procesos Administrativos De Negocios", "Herramientas Tecnológicas Para La Gestión Contable", "Procedimientos Laborales Y Contratación", "Nivelación Matemática", "Habilidades Básicas De Comunicación", "Proceso De Portafolio I", "Análisis Contable", "Código Tributario", "Remuneraciones", "Algebra", "Habilidades De Comunicación Efectiva", "Fundamentos De Antropología", "Proceso De Portafolio II", "Contabilidades Especiales", "Análisis Económico Para La Administración", "Impuesto A La Renta", "Impuestos A Las Ventas Y Servicios", "Herramientas Financieras", "Mentalidad Emprendedora", "Ingles Básico I", "Doctrina Social De La Iglesia", "Proceso De Portafolio III", "Contabilidad De Inversiones Y Consolidación", "Herramientas Tecnológicas ERP", "Taller De Renta", "Costos, Presupuestos Y Control Presupuestario", "Ingles Básico II", "Ética Para El Trabajo", "Proceso De Portafolio IV", "Auditoria Y Control Interno", "Taller Tributario Contable", "Practica Laboral", "Estadística Descriptiva", "Innovación En Procesos", "Ingles Elemental", "Proceso De Portafolio V", "Auditoria De Estados Financieros", "Auditoria Tributaria", "Gobierno Corporativo Y Compliance", "Finanzas Para La Toma De Decisiones", "Ingles Intermedio", "Ética Profesional", "Proceso De Portafolio VI", "Gestión De Impuestos", "Gestión De Riesgos", "Costos Para La Toma De Decisiones", "Planificación Estratégica Y Control De Gestión", "Evaluación De Proyectos", "ESP Contable", "Proceso De Portafolio Final"],
+    prerequisitos: ["Todas Las Asignaturas Semestres 1 A 7"],
     creditos: 20
   }
 ];
