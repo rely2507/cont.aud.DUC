@@ -65,19 +65,7 @@ div.addEventListener("mouseleave", () => {
 function actualizarBloqueos() {
   const aprobadas = [...document.querySelectorAll(".asignatura.aprobada")].map(d => d.dataset.nombre);
 
-  // Contar créditos complementarios aprobados
-  let creditosComplementarios = 0;
-  aprobadas.forEach(nombre => {
-    const asignatura = asignaturas.find(a => a.nombre === nombre);
-    if (!asignatura) return;
-    const tipo = asignatura.tipo;
-    if (
-      tipo === "complementaria" ||
-      (asignatura.nombre.trim().toLowerCase() === "doctrina social de la iglesia")
-    ) {
-      creditosComplementarios += asignatura.creditos || 0;
-    }
-  });
+  const creditosComplementarios = contarCreditosComplementarios(aprobadas);
 
   document.querySelectorAll(".asignatura").forEach(div => {
     const nombre = div.dataset.nombre;
@@ -115,6 +103,12 @@ function actualizarBloqueos() {
   });
 
   guardarEstado();
+}
+  // Contar créditos complementarios aprobados
+function contarCreditosComplementarios(aprobadas) {
+  return asignaturas
+    .filter(a => a.tipo === "complementaria" && aprobadas.includes(a.nombre))
+    .reduce((sum, a) => sum + (a.creditos || 0), 0);
 }
 
 function estanAprobadosTodosHasta(semestreLimite, aprobadas) {
