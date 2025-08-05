@@ -101,24 +101,18 @@ function actualizarBloqueos() {
         }
       }
     }
-        // Establecer mensaje explicativo si está bloqueada
-    if (bloqueada) {
-      if (data.nombre === "Práctica Laboral") {
-        div.title = "❌ Requiere aprobar todos los ramos del semestre 1 al 4 y al menos 6 créditos optativos.";
-      } else if (data.nombre === "Práctica Profesional" || data.nombre === "Portafolio de Título") {
-        div.title = "❌ Requiere aprobar todos los ramos del semestre 1 al 7 y al menos 18 créditos optativos.";
-      } else if (data.prerequisitos.includes("Todas Las Asignaturas Semestres 1 A 4")) {
-        div.title = "❌ Requiere aprobar todos los ramos del semestre 1 al 4.";
-      } else if (data.prerequisitos.includes("Todas Las Asignaturas Semestres 1 A 7")) {
-        div.title = "❌ Requiere aprobar todos los ramos del semestre 1 al 7.";
-      } else if (data.prerequisitos.length > 0) {
-        div.title = "❌ Requiere aprobar: " + data.prerequisitos.join(", ");
-      } else {
-        div.title = "";
-      }
-    } else {
-      div.removeAttribute("title");
-    }
+// Establecer mensaje explicativo solo para las prácticas
+if (bloqueada) {
+  if (data.nombre === "Práctica Laboral") {
+    div.title = "❌ Requiere al menos 6 créditos optativos.";
+  } else if (data.nombre === "Práctica Profesional" || data.nombre === "Portafolio de Título") {
+    div.title = "❌ Requiere al menos 18 créditos optativos.";
+  } else {
+    div.removeAttribute("title"); // No mostrar tooltip para otras
+  }
+} else {
+  div.removeAttribute("title");
+}
 
     // Aplica o quita bloqueo visual
     div.classList.toggle("bloqueada", bloqueada);
