@@ -1,8 +1,16 @@
 function crearMalla() {
   const container = document.getElementById("malla");
   container.innerHTML = "";
-  const optativasGuardadas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
-  optativasGuardadas.forEach(o => asignaturas.push(o));
+const aprobadas = JSON.parse(localStorage.getItem("mallaAprobadas") || "[]");
+const optativasGuardadas = JSON.parse(localStorage.getItem("optativasPersonalizadas") || "[]");
+
+optativasGuardadas.forEach(o => {
+  // Marcar como aprobada si lo estaba antes
+  if (aprobadas.includes(o.nombre)) {
+    o._aprobada = true;
+  }
+  asignaturas.push(o);
+});
   
   const maxSemestre = Math.max(...asignaturas.map(a => a.semestre));
 
