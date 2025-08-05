@@ -101,17 +101,25 @@ function actualizarBloqueos() {
         }
       }
     }
-// Establecer mensaje explicativo solo para las prácticas
+    
+// Establecer tooltip SOLO para las asignaturas de práctica si están bloqueadas
 if (bloqueada) {
   if (data.nombre === "Práctica Laboral") {
     div.title = "❌ Requiere al menos 6 créditos optativos.";
   } else if (data.nombre === "Práctica Profesional" || data.nombre === "Portafolio de Título") {
     div.title = "❌ Requiere al menos 18 créditos optativos.";
   } else {
-    div.removeAttribute("title"); // No mostrar tooltip para otras
+    div.removeAttribute("title"); // ← elimina para otras
   }
 } else {
-  div.removeAttribute("title");
+  // Si está desbloqueada y es una de las prácticas, borra tooltip
+  if (
+    data.nombre === "Práctica Laboral" ||
+    data.nombre === "Práctica Profesional" ||
+    data.nombre === "Portafolio de Título"
+  ) {
+    div.removeAttribute("title");
+  }
 }
 
     // Aplica o quita bloqueo visual
