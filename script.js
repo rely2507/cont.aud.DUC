@@ -15,9 +15,10 @@ optativasGuardadas.forEach(o => {
   const maxSemestre = Math.max(...asignaturas.map(a => a.semestre));
 
   for (let i = 1; i <= maxSemestre; i++) {
-    const columna = document.createElement("div");
-    columna.className = "semestre";
-    columna.innerHTML = `<h3>Semestre ${i}</h3>`;
+const columna = document.createElement("div");
+columna.className = "semestre";
+columna.id = `semestre-${i}`;
+columna.innerHTML = `<h3>Semestre ${i}</h3>`;
 
     const materias = asignaturas.filter(a => a.semestre === i);
     materias.forEach(m => {
